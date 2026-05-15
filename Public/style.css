@@ -1,0 +1,282 @@
+body{
+    background-color: #f2e5d7;
+    flex-direction: column;
+    padding-bottom: 60px;
+   }
+
+#main-navigation{
+    background-color: #c39c7c;
+    text-align: center;
+}
+
+#main-navigation li{
+    display: inline-block;
+    position: relative;
+    padding: 12px;
+}
+
+/* a hover */
+#main-navigation li:hover {
+    background-color: rgb(226, 139, 139);
+    color: white
+}
+
+/* drop down */
+#main-navigation ul ul{
+   display: none;
+   position: absolute
+}
+
+/* hover of drop down */
+#main-navigation li:hover ul{
+   display: block;
+   background-color:rgb(216, 140, 189);
+   float: left;
+   position: absolute;
+   padding: 0px;
+}
+
+/* ////////////////////////////////////////// */
+
+/* Audio box */
+.audio-box{
+    background-color: rgb(160, 219, 178);
+    color:black;
+    border: 2px solid black;
+    width: 60%;
+    display: grid;
+    position: relative;
+    margin: 100px;
+    padding: 5px;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/*Turn on and off boxes */
+.onandoff{
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    background-color: #EFCFE3;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.button-container{
+    width: 40%;
+    height: 20%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    display: flex;
+    gap: 10px;
+}
+
+.button-container2{
+  flex-wrap: wrap;
+  justify-content:center ;
+  height: 20%;
+  bottom: 10px;
+  left: 50%;
+  display: flex;
+  gap: 10px;
+}
+
+.button{
+    background-color: grey;
+    width:10px;
+    margin: auto;
+    display:inline;
+
+}
+ button:hover{
+    background-color: rgb(175, 169, 172);
+} 
+
+/* Main content box */
+.content-box{
+    background-color: rgb(244, 244, 244);
+    color:black;
+    border: 2px solid black;
+    width: 40%;
+    display: grid;
+    /* place-items:center;  FIGUIRE OUT HOW TO CENTER*/
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/* Custom CSS Button */
+.button-56 {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
+
+
+/* custom button #2 */
+.button-container1{
+    width: 40%;
+    height: 20%;
+    position: center;
+    bottom: 10px;
+    left: 50%;
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 10px;
+}
+/* CSS */
+.button-45 {
+  align-items: center;
+  background-color: #FFE7E7;
+  background-position: 0 0;
+  border: 1px solid #FEE0E0;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #D33A2C;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 33.4929px;
+  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+  padding: 2px 12px;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-underline-offset: 1px;
+  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+.button-45:active,
+.button-45:hover,
+.button-45:focus {
+  outline: 0;
+}
+
+
+.button-45:active {
+  background-color: #D33A2C;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+
+.button-45:hover {
+  background-color: #FFE3E3;
+  border-color: #FAA4A4;
+}
+
+.button-45:active:hover,
+.button-45:focus:hover,
+.button-45:focus {
+  background-color: #D33A2C;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+
+/* Table */
+table, th, td {
+    border:1px solid black;
+    padding: 20px;
+    background-color: white;
+}
+
+
+
+/* /////////////////////Dog Images///////////////////////////// */
+/* DOG IMAGE SWIPER */
+.swiper {
+  width: 600px;
+  height: 300px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#breedContainer{
+  background-color: rgb(244, 244, 244);
+  color:black;
+  border: 2px solid black;
+  width: 70%;
+  display: grid;
+  position: right;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}

@@ -1,0 +1,35 @@
+<head>
+    <head>
+        <title>Final Project - INST377 </title>
+         <link rel="stylesheet" href="style.css">
+        <script src="favorites.js" defer></script>
+    </head>
+
+        <nav id="main-navigation">
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="About.html">About & Help</a></li>
+                <li><a href="Favorites.html">Favorites</a></li>
+            </li>
+            </ul> 
+        </nav>
+
+        <body>
+            <h2>Get meal ideas by searching with a main ingredient:</h2>
+            <form onsubmit="return findMeal(event)">
+                <input id="inputPhrase" type="text" required >
+                <button type="submit"> Search</button>
+            </form>
+            <div id="mainResults"></div>
+
+            <h2>Get meal ideas by searching by category</h2>
+            <p><i>Options: Seafood, Beef, Chicken, Dessert, Vegetarian</i></p>
+            <form onsubmit="return categoryMeal(event)">
+                <input id="catInput" type="text" required >
+                <button type="submit"> Search</button>
+            </form>
+
+            <div id="catResults"></div>
+
+        </body>
+</head>
