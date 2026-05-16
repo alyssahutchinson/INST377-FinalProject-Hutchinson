@@ -17,9 +17,10 @@ const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 console.log("Supabase url =", process.env.SUPABASE_URL)
 
 app.get('/', (req, res) => {
-  res.sendFile('public/Favorites.html', { root: __dirname });
+  res.sendFile('public/Homepage.html', { root: __dirname });
 });
 
+//getting data
 app.get('/Favorites', async (req, res) => {
   console.log('Attempting to get all fav meals!');
 
@@ -35,12 +36,17 @@ app.get('/Favorites', async (req, res) => {
   }
 });
 
+//adding data
 app.post('/Favorites', async (req, res) => {
   console.log('Adding Favorite Meal');
   console.log(`Request: ${JSON.stringify(req.body)}`);
 
   const mealName = req.body.mealName;
-  const mealArea = req.body.mealArea;
+  console.log(mealName)
+  const mainIngredient = req.body.mainIngredient;
+  const Area = req.body.meal_Area;
+
+  console.log(req.body)
   // const state = req.body.state;
 
   // if (!isValidStateAbbreviation(state)) {
@@ -55,9 +61,9 @@ app.post('/Favorites', async (req, res) => {
   const { data, error } = await supabase
     .from('Favorites')
     .insert({
-      meal_name: firstName,
-      customer_last_name: lastName,
-      //customer_state: state,
+      meal_name: mealName,
+      main_ingredient: mainIngredient,
+      area: area
     })
     .select();
 

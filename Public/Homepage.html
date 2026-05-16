@@ -4,17 +4,41 @@
          <link rel="stylesheet" href="style.css">
         <script src="favorites.js" defer></script>
     </head>
-
+    <h1>Save-a-Plate</h1>
         <nav id="main-navigation">
             <ul>
                 <li><a href="Homepage.html">Home</a></li>
                 <li><a href="About.html">About & Help</a></li>
-                <li><a href="Favorites.html">Favorites</a></li>
+                <li><a href="Favorites.html" onclick = "loadFavsData()">Favorites</a></li>
             </li>
             </ul> 
         </nav>
-
+        
+        
         <body>
+            <!-- Add to Fav Form -->
+            <!-- <form onclick="addToFav()">  -->
+            <div class="sidebar">
+            <p><i>Want to try out a meal that piques your interest? Want to save one for later? Add it to your favorites!</i></p>
+                <form onsubmit="addToFav()" name=favForm method="get">
+                <label for="mealname"> Meal Name:</label>
+                <input type="text" id="mealname" required >
+                <br>
+                <br>
+                <label for="mealIngredients"> Main Ingredient: </label>
+                <input type="text" id="mealIngredients" required>
+                <br>
+                <br>
+                <label for="mealArea"> Meal area: </label>
+                <input type="text" id="mealArea" required>
+                <br>
+                <br>
+                <button id=clickButton> Add to Favorites!</button>
+            </form>
+        </div>
+
+
+            <!-- Searching for meal ideas by main ingredient -->
             <h2>Get meal ideas by searching with a main ingredient:</h2>
             <form onsubmit="return findMeal(event)">
                 <input id="inputPhrase" type="text" required >
