@@ -44,8 +44,7 @@ app.post('/Favorites', async (req, res) => {
   const mealName = req.body.mealName;
   console.log(mealName)
   const mainIngredient = req.body.mainIngredient;
-  const Area = req.body.area;
-  console.log('AREA:',area)
+  const foodArea = req.body.foodArea;
 
   console.log(req.body)
   // const state = req.body.state;
@@ -59,12 +58,12 @@ app.post('/Favorites', async (req, res) => {
   //   return;
   // }
 
-  const { data, error } = await supabase
+    const { data, error } = await supabase
     .from('Favorites')
     .insert({
       meal_name: mealName,
       main_ingredient: mainIngredient,
-      area: Area
+      area: foodArea
       
     })
     .select();

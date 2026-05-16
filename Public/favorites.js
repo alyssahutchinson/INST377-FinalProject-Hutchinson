@@ -27,10 +27,11 @@ async function findMeal(e){
             // });
 
             response.meals.forEach(meal => {
-                divMainRes.innerHTML+= `${meal.strMeal} <br> 
+                divMainRes.innerHTML+= `Meal: ${meal.strMeal} <br>`
+                divMainRes.innerHTML+= `Area: ${meal.strArea} <br>  
                 <div>
                     <img src ="${meal.strMealThumb}" width = "120"> 
-                </div>`
+                </div> <br>`
                 ; //^^^^ have to change to use CSS for image shaping
             });
             
@@ -62,8 +63,11 @@ async function categoryMeal(e){
             divCatResults.innerHTML=""; //clears last search result
 
             response.meals.forEach(meal => {
-                final = divCatResults.innerHTML+= `${meal.strMeal} <br> `
-                final.onclick = addToFav(meal.strMeal)
+                divCatResults.innerHTML+= `Meal: ${meal.strMeal} <br>`
+                divCatResults.innerHTML+= `Area: ${meal.strArea} <br>  
+                <div>
+                    <img src ="${meal.strMealThumb}" width = "120"> 
+                </div> <br>`
 
             });
         })
@@ -71,12 +75,13 @@ async function categoryMeal(e){
 }
 //// Favorites////////////////////////////////
 async function addToFav() {
+    alert("Added to Favorites!");
   await fetch(`/Favorites`, {
     method: 'POST',
     body: JSON.stringify({
       mealName: `${document.getElementById('mealname').value}`,
       mainIngredient: `${document.getElementById('mealIngredients').value}`,
-      area: `${document.getElementById('area').value}`,
+      foodArea: `${document.getElementById('area').value}`,
     }),
     headers: {
       'content-type': 'application/json',
@@ -139,9 +144,9 @@ async function loadFavsData() {
         favsTableRow.appendChild(favTableMealArea);
 
         table.appendChild(favsTableRow);
-        makeChart(Object.keys(ingredientsForChart),Object.values(ingredientsForChart))
+        
       });
-
+      makeChart(Object.keys(ingredientsForChart),Object.values(ingredientsForChart))
     //   const preExistingTable = document.getElementById('customerInfo');
     //   if (preExistingTable) {
     //     preExistingTable.remove();
@@ -161,29 +166,41 @@ async function loadFavsData() {
 
 //chart.js
 function makeChart(sentLabels, sentData){
-    
+  new Chart(document.getElementById('myChart'), {
+    type: 'pie',
+    data: {
+      labels: sentLabels,
+      datasets: [
+        {
+          label: 'Acquisitions by year',
+          data: sentData,
+        },
+      ],
+    },
+  });
+}
     //deletes old chart
-    const oldChart = Chart.getChart('myChart')
-    if(oldChart != null){
-        oldChart.destroy()
-    }
-    const ingrChart = document.getElementById('myChart');
+//     const oldChart = Chart.getChart('myChart')
+//     if(oldChart != null){
+//         oldChart.destroy()
+//     }
+//     const ingrChart = document.getElementById('myChart');
 
-    console.log(ingrChart)
-    new Chart(ingrChart, {
-        type: 'pie',
-         labels: sentLabels,
-    datasets: [{
-        data: sentData,
-        backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-        ],
-        hoverOffset: 4
-  }]
-    })
-};
+//     console.log(ingrChart)
+//     new Chart(ingrChart, {
+//         type: 'pie',
+//          labels: sentLabels,
+//     datasets: [{
+//         data: sentData,
+//         backgroundColor: [
+//         'rgb(255, 99, 132)',
+//         'rgb(54, 162, 235)',
+//         'rgb(255, 205, 86)'
+//         ],
+//         hoverOffset: 4
+//   }]
+//     })
+//};
 
 
  window.onload = function(){
