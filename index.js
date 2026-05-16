@@ -44,7 +44,8 @@ app.post('/Favorites', async (req, res) => {
   const mealName = req.body.mealName;
   console.log(mealName)
   const mainIngredient = req.body.mainIngredient;
-  const Area = req.body.meal_Area;
+  const Area = req.body.area;
+  console.log('AREA:',area)
 
   console.log(req.body)
   // const state = req.body.state;
@@ -63,9 +64,11 @@ app.post('/Favorites', async (req, res) => {
     .insert({
       meal_name: mealName,
       main_ingredient: mainIngredient,
-      area: area
+      area: Area
+      
     })
     .select();
+    console.log('AREA:',area)
 
   if (error) {
     console.log(`Error: ${error}`);

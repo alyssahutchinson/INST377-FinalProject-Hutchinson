@@ -76,7 +76,7 @@ async function addToFav() {
     body: JSON.stringify({
       mealName: `${document.getElementById('mealname').value}`,
       mainIngredient: `${document.getElementById('mealIngredients').value}`,
-      meal_Area: `${document.getElementById('mealArea').value}`,
+      area: `${document.getElementById('area').value}`,
     }),
     headers: {
       'content-type': 'application/json',
@@ -124,12 +124,12 @@ async function loadFavsData() {
 
         //adding up main ingredients for chart
         favTableMealIngredient.innerHTML = favorite['main_ingredient'];
-        // if(ingredientsForChart[favTableMealIngredient.innerHTML]){
-        //     ingredientsForChart[favTableMealIngredient.innerHTML]++}
-        // else{
-        //     ingredientsForChart[favTableMealIngredient.innerHTML] = 1;
-        // }
-        // console.log(ingredientsForChart);
+        if(ingredientsForChart[favTableMealIngredient.innerHTML]){
+            ingredientsForChart[favTableMealIngredient.innerHTML]++}
+        else{
+            ingredientsForChart[favTableMealIngredient.innerHTML] = 1;
+        }
+        console.log(ingredientsForChart);
 
 
         favTableMealArea.innerHTML = favorite['area'];
@@ -139,7 +139,7 @@ async function loadFavsData() {
         favsTableRow.appendChild(favTableMealArea);
 
         table.appendChild(favsTableRow);
-        // makeChart(Object.keys(ingredientsForChart),Object.values(ingredientsForChart))
+        makeChart(Object.keys(ingredientsForChart),Object.values(ingredientsForChart))
       });
 
     //   const preExistingTable = document.getElementById('customerInfo');
@@ -149,42 +149,41 @@ async function loadFavsData() {
 
       document.body.appendChild(table);
     });
-    //makeChart()
+   // makeChart()
 }
 
 // let myChart = null 
 
-const preExistingTable = document.getElementById('myChart');
-    if (preExistingTable) {
-    preExistingTable.remove();
-    }
+// const preExistingTable = document.getElementById('myChart');
+//     if (preExistingTable) {
+//     preExistingTable.remove();
+//     }
 
 //chart.js
-// function makeChart(sentData, sentLabels){
-//     // if(myChart !== null){
-//     //     myChart.destroy()
-//     // }
-//     ingrChart = document.getElementById('myChart');
+function makeChart(sentLabels, sentData){
+    
+    //deletes old chart
+    const oldChart = Chart.getChart('myChart')
+    if(oldChart != null){
+        oldChart.destroy()
+    }
+    const ingrChart = document.getElementById('myChart');
 
-//     new Chart(ingrChart, {
-//         type: 'pie',
-//         labels: [
-//         'Red',
-//         'Blue',
-//         'Yellow'
-//     ],
-//     datasets: [{
-//         label: sentLabels,
-//         data: sentData,
-//         backgroundColor: [
-//         'rgb(255, 99, 132)',
-//         'rgb(54, 162, 235)',
-//         'rgb(255, 205, 86)'
-//         ],
-//         hoverOffset: 4
-//   }]
-//     })
-// };
+    console.log(ingrChart)
+    new Chart(ingrChart, {
+        type: 'pie',
+         labels: sentLabels,
+    datasets: [{
+        data: sentData,
+        backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
+        ],
+        hoverOffset: 4
+  }]
+    })
+};
 
 
  window.onload = function(){

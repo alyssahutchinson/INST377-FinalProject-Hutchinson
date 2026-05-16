@@ -244,6 +244,12 @@ table, th, td {
     background-color: white;
 }
 
+.chart {
+    align-items: center;
+    width: 600;
+    height: 400;
+}
+
 
 
 /* /////////////////////Dog Images///////////////////////////// */
