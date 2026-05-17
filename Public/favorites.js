@@ -18,33 +18,33 @@ async function findMeal(e){
             
             const grab = document.querySelector(".swiper-wrapper");
 
-            // response.meals.forEach(meal => {
-            //      grab.innerHTML += `${meal.strMeal} <br> 
-            //     <div class="swiper-slide">
-            //         <img src ="${meal.strMealThumb}" width = "120"> 
-            //     </div>`
-            //     ; //^^^^ have to change to use CSS for image shaping
-            // });
-
             response.meals.forEach(meal => {
-                divMainRes.innerHTML+= `Meal: ${meal.strMeal} <br>`
-                divMainRes.innerHTML+= `Area: ${meal.strArea} <br>  
-                <div>
+                 grab.innerHTML += `${meal.strMeal} <br> 
+                <div class="swiper-slide">
                     <img src ="${meal.strMealThumb}" width = "120"> 
-                </div> <br>`
+                </div>`
                 ; //^^^^ have to change to use CSS for image shaping
             });
+
+            // response.meals.forEach(meal => {
+            //     divMainRes.innerHTML+= `Meal: ${meal.strMeal} <br>`
+            //     divMainRes.innerHTML+= `Area: ${meal.strArea} <br>  
+            //     <div>
+            //         <img src ="${meal.strMealThumb}" width = "120"> 
+            //     </div> <br>`
+            //     ; //^^^^ have to change to use CSS for image shaping
+            // });
             
         })
         .catch(error => console.error(error))
 
-    //  const swiper = new Swiper('.swiper', {
-    //         loop: true,
-    //         navigation: {
-    //         nextEl: '.swiper-button-next',
-    //         prevEl: '.swiper-button-prev',
-    //         }
-    //     });
+     const swiper = new Swiper('.swiper', {
+            loop: true,
+            navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            }
+        });
 }
 
 async function categoryMeal(e){
@@ -75,7 +75,7 @@ async function categoryMeal(e){
 }
 //// Favorites////////////////////////////////
 async function addToFav() {
-    alert("Added to Favorites!");
+    alert("Meal idea added to Favorites!");
   await fetch(`/Favorites`, {
     method: 'POST',
     body: JSON.stringify({
@@ -87,7 +87,6 @@ async function addToFav() {
       'content-type': 'application/json',
     },
   }).then((result) => result.json());
-  //console.log(sentMeal.value)
 
   await loadFavsData();
 }
