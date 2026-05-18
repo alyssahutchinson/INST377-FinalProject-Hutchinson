@@ -18,22 +18,22 @@ async function findMeal(e){
             
             const grab = document.querySelector(".swiper-wrapper");
 
-            response.meals.forEach(meal => {
-                 grab.innerHTML += `${meal.strMeal} <br> 
-                <div class="swiper-slide">
-                    <img src ="${meal.strMealThumb}" width = "120"> 
-                </div>`
-                ; //^^^^ have to change to use CSS for image shaping
-            });
-
             // response.meals.forEach(meal => {
-            //     divMainRes.innerHTML+= `Meal: ${meal.strMeal} <br>`
-            //     divMainRes.innerHTML+= `Area: ${meal.strArea} <br>  
-            //     <div>
+            //      grab.innerHTML += `${meal.strMeal} <br> 
+            //     <div class="swiper-slide">
             //         <img src ="${meal.strMealThumb}" width = "120"> 
-            //     </div> <br>`
+            //     </div>`
             //     ; //^^^^ have to change to use CSS for image shaping
             // });
+
+            response.meals.forEach(meal => {
+                divMainRes.innerHTML+= `Meal: ${meal.strMeal} <br>`
+                divMainRes.innerHTML+= `Area: ${meal.strArea} <br>  
+                <div>
+                    <img src ="${meal.strMealThumb}" width = "120"> 
+                </div> <br>`
+                ; //^^^^ have to change to use CSS for image shaping
+            });
             
         })
         .catch(error => console.error(error))
@@ -153,15 +153,8 @@ async function loadFavsData() {
 
       document.body.appendChild(table);
     });
-   // makeChart()
 }
 
-// let myChart = null 
-
-// const preExistingTable = document.getElementById('myChart');
-//     if (preExistingTable) {
-//     preExistingTable.remove();
-//     }
 
 //chart.js
 function makeChart(sentLabels, sentData){
@@ -178,29 +171,6 @@ function makeChart(sentLabels, sentData){
     },
   });
 }
-    //deletes old chart
-//     const oldChart = Chart.getChart('myChart')
-//     if(oldChart != null){
-//         oldChart.destroy()
-//     }
-//     const ingrChart = document.getElementById('myChart');
-
-//     console.log(ingrChart)
-//     new Chart(ingrChart, {
-//         type: 'pie',
-//          labels: sentLabels,
-//     datasets: [{
-//         data: sentData,
-//         backgroundColor: [
-//         'rgb(255, 99, 132)',
-//         'rgb(54, 162, 235)',
-//         'rgb(255, 205, 86)'
-//         ],
-//         hoverOffset: 4
-//   }]
-//     })
-//};
-
 
  window.onload = function(){
     if (window.location.pathname == "/Favorites.html"){

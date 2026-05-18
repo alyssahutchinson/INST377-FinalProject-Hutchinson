@@ -47,17 +47,6 @@ app.post('/Favorites', async (req, res) => {
   const foodArea = req.body.foodArea;
 
   console.log(req.body)
-  // const state = req.body.state;
-
-  // if (!isValidStateAbbreviation(state)) {
-  //   console.log(`State: ${state} is invalid`);
-  //   res.statusCode = 400;
-  //   res.json({
-  //     message: `${state} is not a valid 2 Letter Abbreviation for State`,
-  //   });
-  //   return;
-  // }
-
     const { data, error } = await supabase
     .from('Favorites')
     .insert({
