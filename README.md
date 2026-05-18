@@ -1,7 +1,9 @@
 # INST377-FinalProject-Hutchinson
 INST377 Final Project - Alyssa Hutchinson, Spring 2026
 
-This application provides meal ideas based on different criteria, and allows users to save favorite meals for times when there is no inspiration on what to cook, or when they have limited groceries. The main audeince is college students or anyone with a very busy or variable schedule. With such busy and changing schedules, it’d be easy for this group of people to easily find meals based on their specific preferences, making it all easily accessible and quick in one place.
+# Save-A-Plate
+
+This application provides meal ideas based on different criteria, and allows users to save favorite meals for times when there is no inspiration on what to cook, or when they have limited groceries. The main audience is college students or anyone with a very busy or variable schedule. With such busy and changing schedules, it’d be easy for this group of people to easily find meals based on their specific preferences, making it all easily accessible and quick in one place.
 
 Target Browsers: iOS or Android, any Windows Browsers 
 # How to Install
