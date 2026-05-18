@@ -2,6 +2,7 @@
     <head>
         <title>Final Project - INST377 </title>
          <link rel="stylesheet" href="style.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script src="favorites.js" defer></script>
     </head>
 <div class="text">
@@ -19,6 +20,7 @@
         </nav>
         
         <body>
+            <!-- HTML !-->
         <div class="text">
             <h2> Why We're Here</h2>
             <p> We know the days are busy and there's not much time to hit the 
@@ -27,21 +29,42 @@
                 be that helpful tool you need to help reduce one stressor of mealtimes.</p>
             <br>
             <br>
-            <h2><i>How to use Save-A-Plate<</i></h2>
-            <p><b>Searching for meals by main ingredient</b></p>
-            <p>Type in the main ingredient you want to use, and get results of 
+            <h2><i>How to use Save-A-Plate: FAQs</i></h2>
+            
+            <div x-data="{ open: false }">
+            <button class="button-8" @click="open = ! open"><b>Searching for meals by main ingredient</b></button>
+        
+            <div x-show="open" @click.outside="open = false">
+                 <p>Type in the main ingredient you want to use, and get results of 
                 meals with that ingredient as the main component, and what are in the world
                 the meal is considered to be from.</p>
-
-            <p><b>Searching for meals by category</b></p>
-            <p>Type in the category of meal you want (seafood, dessert, etc), and get results of 
+            </div>
+        </div>
+        <br>
+            <div x-data="{ open: false }">
+            <button class="button-8" @click="open = ! open"><b>Searching for meals by category</b></button>
+        
+            <div x-show="open" @click.outside="open = false">
+                 <p>Type in the category of meal you want (seafood, dessert, etc), and get results of 
                 meals within that category.</p>
-
-            <p><b>Adding Meals to your favorites</b></p>
-            <p>Fill out the 'Add to Favorites' form on the Homepage to add a meal to your favorites list for future reference.</p>
-
-            <p><b>Viewing your Favorites List</b></p>
-            <p>Go to the 'Favorites' Page and scroll through your area makeup chart and the favorites list.</p>
+            </div>
+        </div>
+        <br>
+        <div x-data="{ open: false }">
+            <button class="button-8" @click="open = ! open"><b>Adding Meals to your favorites</b></button>
+        
+            <div x-show="open" @click.outside="open = false"><p>Fill out the 
+                'Add to Favorites' form on the Homepage to add a meal to your 
+                favorites list for future reference.</p>
+            </div>
+        </div>
+        <br>
+        <div x-data="{ open: false }">
+            <button class="button-8" @click="open = ! open"><b>Viewing your Favorites List</b></button>
+        
+            <div x-show="open" @click.outside="open = false"><p>Go to the 'Favorites' 
+                Page and scroll through your area makeup chart and the favorites list.</p></div>
+            </div>
         </div>
         </body>
     </div>
